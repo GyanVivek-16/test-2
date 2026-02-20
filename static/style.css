@@ -1,0 +1,307 @@
+:root{
+--bg:#0e1217;
+--card:#141922;
+--muted:#8e9bb0;
+--text:#e5ecfa;
+--accent:#00c8ff;
+--border:#202636
+}
+
+*{box-sizing:border-box}
+
+html,body{
+margin:0;
+padding:0;
+background:var(--bg);
+color:var(--text);
+font:16px/1.4 system-ui,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial
+}
+
+h1,h2{
+margin:.2rem 0 .6rem 0
+}
+
+/* ================= TOP BAR ================= */
+
+.topbar{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:16px 20px;
+border-bottom:1px solid var(--border);
+background:#0f1319;
+position:sticky;
+top:0;
+z-index:5
+}
+
+.btn{
+background:var(--accent);
+border:none;
+color:#001019;
+padding:10px 14px;
+border-radius:10px;
+font-weight:700;
+cursor:pointer;
+text-decoration:none
+}
+
+.btn.small{
+padding:6px 10px;
+font-weight:600
+}
+
+/* ================= GENERAL CARDS ================= */
+
+.card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:14px;
+padding:14px;
+box-shadow:0 8px 30px rgba(0,0,0,.25)
+}
+
+.center{
+min-height:100vh;
+display:grid;
+place-items:center
+}
+
+/* ================= LOGIN CARD ================= */
+
+.login-card{
+width:340px;
+background:var(--card);
+border:1px solid var(--border);
+border-radius:14px;
+padding:30px 26px;
+box-shadow:0 8px 30px rgba(0,0,0,.35);
+display:flex;
+flex-direction:column
+}
+
+.login-card h1{
+text-align:center;
+margin-bottom:20px
+}
+
+.login-card label{
+display:block;
+margin-top:14px;
+margin-bottom:6px;
+font-size:14px
+}
+
+.login-card input{
+width:100%;
+padding:10px 12px;
+border-radius:8px;
+border:1px solid var(--border);
+background:#0f141b;
+color:var(--text);
+outline:none;
+font-size:14px
+}
+
+.login-card input:focus{
+border-color:var(--accent)
+}
+
+.password-wrapper{
+position:relative;
+display:flex;
+align-items:center
+}
+
+.password-wrapper input{
+padding-right:60px
+}
+
+.toggle-password{
+position:absolute;
+right:12px;
+top:50%;
+transform:translateY(-50%);
+cursor:pointer;
+font-size:12px;
+color:var(--muted);
+user-select:none
+}
+
+.login-btn{
+width:100%;
+margin-top:20px
+}
+
+.error{
+color:#ff6b6b;
+text-align:center;
+margin:-6px 0 8px 0
+}
+
+/* ================= DASHBOARD GRID ================= */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(var(--cols,4),1fr);
+gap:18px;
+padding:18px
+}
+
+.twin-card{
+cursor:pointer;
+transition:transform .12s ease, box-shadow .12s ease
+}
+
+.twin-card:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 28px rgba(0,0,0,.35)
+}
+
+.title{
+display:flex;
+align-items:center;
+justify-content:space-between
+}
+
+.status{
+background:#0f2b32;
+border:1px solid #184c57;
+color:#78f2ff;
+padding:4px 8px;
+border-radius:20px;
+font-size:12px;
+font-weight:700
+}
+
+.muted{
+color:var(--muted);
+font-size:12px
+}
+
+.gauges{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:10px;
+margin:12px 0
+}
+
+.gauge{
+display:grid;
+place-items:center
+}
+
+.val{
+font-weight:800;
+margin-top:6px
+}
+
+.mini-chart{
+height:56px
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.55);
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:1000
+}
+
+.modal.hidden{
+display:none
+}
+
+.modal-content{
+background:#121418;
+border:1px solid #2a2f3a;
+border-radius:14px;
+box-shadow:0 10px 40px rgba(0,0,0,.5);
+width:min(92vw,980px);
+max-height:88vh;
+overflow:auto;
+padding:20px
+}
+
+.modal-header{
+display:flex;
+align-items:center;
+gap:12px;
+justify-content:space-between;
+margin-bottom:10px
+}
+
+.modal-close{
+background:#1c212b;
+border:1px solid #2a2f3a;
+border-radius:10px;
+font-size:22px;
+line-height:20px;
+width:36px;
+height:36px;
+cursor:pointer;
+color:#cfd6e4
+}
+
+.modal-close:hover{
+background:#222838
+}
+
+.modal-stats{
+display:flex;
+gap:24px;
+margin:10px 0 16px 0
+}
+
+.modal-alerts{
+margin:4px 0 10px 0;
+display:flex;
+flex-wrap:wrap;
+gap:8px
+}
+
+.alert-badge{
+border:1px solid #3a1e1e;
+background:#2a0f12;
+color:#ff9aa0;
+padding:6px 10px;
+border-radius:10px;
+font-size:12px
+}
+
+.alert-badge.ok{
+border-color:#1f3a2d;
+background:#0f241a;
+color:#9cffc7
+}
+
+.modal-legend{
+display:flex;
+gap:16px;
+align-items:center;
+margin:4px 0 8px 0;
+color:#9fb1c7;
+font-size:12px
+}
+
+.legend-item{
+display:flex;
+gap:8px;
+align-items:center
+}
+
+.legend-line{
+display:inline-block;
+width:28px;
+height:0;
+border-top:3px solid #00c8ff
+}
+
+.legend-line.dashed{
+border-top-color:#ffe066;
+border-top-style:dashed
+}

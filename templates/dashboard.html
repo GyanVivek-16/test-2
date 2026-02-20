@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard - Digital Twin</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <div class="left"><h1>Digital Twin Dashboard</h1></div>
+    <div class="right"><a class="btn small" href="{{ url_for('logout') }}">Logout</a></div>
+  </header>
+
+  <main>
+    <section class="grid" id="twinsGrid" style="--cols:4"></section>
+  </main>
+
+  <!-- Modal -->
+  <div id="twinModal" class="modal hidden">
+    <div class="modal-content">
+      <button id="modalClose" class="modal-close" aria-label="Close">&times;</button>
+      <div class="modal-header">
+        <h2 id="modalTitle">Twin Details</h2>
+        <div id="modalStatus" class="status"></div>
+      </div>
+      <div class="modal-stats">
+        <div><strong>Temperature:</strong> <span id="modalTempVal">--</span></div>
+        <div><strong>Pressure:</strong> <span id="modalPresVal">--</span></div>
+        <div><strong>Performance:</strong> <span id="modalPerfVal">--</span></div>
+      </div>
+      <div class="modal-alerts" id="modalAlerts"></div>
+      <div class="modal-legend">
+        <span class="legend-item"><span class="legend-line solid"></span>History</span>
+        <span class="legend-item"><span class="legend-line dashed"></span>Forecast</span>
+      </div>
+      <canvas id="modalTempChart" width="900" height="220"></canvas>
+      <canvas id="modalPresChart" width="900" height="220" style="margin-top:16px"></canvas>
+      <canvas id="modalPerfChart" width="900" height="220" style="margin-top:16px"></canvas>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+  <script src="{{ url_for('static', filename='modal.js') }}"></script>
+</body>
+</html>

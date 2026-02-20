@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - Digital Twin Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="center">
+  <form class="login-card" method="post">
+    <h1>Digital Twin Login</h1>
+    {% if error %}<p class="error">{{ error }}</p>{% endif %}
+    <label>Username</label>
+    <input type="text" name="username" placeholder="admin" required />
+    <label>Password</label>
+    <div class="password-wrapper">
+      <input type="password" name="password" id="passwordField" placeholder="admin" required />
+      <div class="toggle-password" onclick="togglePassword()">SHOW</div>
+    </div>
+    <button class="btn login-btn" type="submit">Login</button>
+  </form>
+  <script>
+    function togglePassword(){
+      const pwd = document.getElementById('passwordField');
+      const t = document.querySelector('.toggle-password');
+      if(pwd.type==='password'){pwd.type='text'; t.textContent='HIDE';} else {pwd.type='password'; t.textContent='SHOW';}
+    }
+  </script>
+</body>
+</html>
